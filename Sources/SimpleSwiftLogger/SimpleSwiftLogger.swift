@@ -3,7 +3,7 @@ import Foundation
 final public class SimpleSwiftLogger {
     
     //Define available log levels
-    enum LogLevel: Int {
+    public enum LogLevel: Int {
         case verbose
         case debug
         case info
@@ -21,23 +21,23 @@ final public class SimpleSwiftLogger {
         formatter.dateFormat = "HH:mm:ss"
     }
     
-    private func verbose(_ obj: Any) {
+    public func verbose(_ obj: Any) {
         if (minLogLevel > LogLevel.verbose) { return }
         print("\(formatter.string(from: Date())) 🟪 \(getLoggable(obj))")
     }
-    private func debug(_ obj: Any) {
+    public func debug(_ obj: Any) {
         if (minLogLevel > LogLevel.debug) { return }
         print("\(formatter.string(from: Date())) 🟩 \(getLoggable(obj))")
     }
-    private func info(_ obj: Any) {
+    public func info(_ obj: Any) {
         if (minLogLevel > LogLevel.info) { return }
         print("\(formatter.string(from: Date())) 🟦 \(getLoggable(obj))")
     }
-    private func warning(_ obj: Any) {
+    public func warning(_ obj: Any) {
         if (minLogLevel > LogLevel.warning) { return }
         print("\(formatter.string(from: Date())) 🟨 WARNING \(getLoggable(obj))")
     }
-    private func error(_ obj: Any) {
+    public func error(_ obj: Any) {
         if (minLogLevel > LogLevel.error) { return }
         print("\(formatter.string(from: Date())) 🟥 ERROR \(getLoggable(obj))")
     }
